@@ -12,3 +12,8 @@ $desktop-breakpoint: 1280px;
         @content;
     }
 }
+
+@mixin centered {
+    margin-left: auto;
+    margin-right: auto;
+}

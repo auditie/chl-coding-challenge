@@ -1,3 +1,19 @@
+@use './colors' as *;
+@use './fonts' as *;
+
 *, *::before, *::after {
     box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+h1, h2 {
+    color: $secondary-purple;
+}
+
+h2 {
+    font-size: 1em;
+
 }

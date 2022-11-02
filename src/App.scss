@@ -1,3 +1,9 @@
+@use './styles/partials/colors' as *;
+@use './styles/partials/global' as *;
+@use './styles/partials/mixins' as *;
+
 .App {
-  
+  background-color: $main-purple;
+  height: 100vh;
+  padding-top: 10vh;
 }
