@@ -1,0 +1,29 @@
+@use '../../styles/partials/global' as *;
+@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/mixins' as *;
+
+.file-upload {
+    background-color: $white;
+    border-radius: 17px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    &__type-icon {
+        height: 7vh;
+    }
+
+    &__details {
+        display: flex;
+        flex-direction: column;
+
+        &-text {
+            display: flex;
+            flex-direction: row;
+        }
+    }
+
+    &__action-icon {
+        height: 3vh;
+    }
+}
