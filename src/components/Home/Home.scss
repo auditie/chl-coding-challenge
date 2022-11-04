@@ -6,10 +6,17 @@
     background-color: $white;
     width: 80vw;
     @include centered;
-    height: 80vh;
     box-shadow: 0px 10px 24px rgba(0, 0, 0, 0.25);
     border-radius: 17px;
-    padding: 2vh 2vw;
+    padding: 2vh 2vw 4vh 2vw;
+
+    @include tablet {
+        width: 60vw;
+    }
+
+    @include desktop {
+        width: 45vw;
+    }
 
     &__upload {
         @include centered;
@@ -34,9 +41,11 @@
         &-title {
             font-size: 1.7em;
             margin-top: 5vh;
+            color: $text-purple;
         }
 
         &-sub-title {
+            color: $text-purple;
             @include centered;
             margin-top: 1.5vh;
             width: 70%;
@@ -48,17 +57,20 @@
             @include centered;
             background-color: $white;
             width: 80%;
-            padding: 2vh 1vw;
+            padding: 1vh 1vw;
             height: 20vh;
             border: #d0d4e1 3px dashed;
             border-radius: 10px;
 
             &-icon {
                 height: 5vh;
+                margin-bottom: 1vh;
             }
 
             &-text {
                 color: $grey-purple;
+                margin-bottom: 1vh;
+                font-weight: 600;
             }
 
             &-button {
@@ -76,6 +88,11 @@
     &__uploaded {
         width: 90%;
         @include centered;
+
+        &-title {
+            margin-bottom: 2vh;
+            color: #abb0c6;
+        }
         
     }
 }

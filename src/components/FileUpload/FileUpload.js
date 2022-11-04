@@ -9,9 +9,11 @@ const FileUpload = () => {
             <div className='file-upload__details'>
                 <div className='file-upload__details-text'>
                     <h3 className='file-upload__details-text-name'>Portfolio Template.pdf</h3>
-                    <h4 className='file-upload__details-text-progress'>96%</h4>
+                    <h4 className='file-upload__details-text-upload'>96%</h4>
                 </div>
-                <div className='file-upload__details-progress-bar'></div>
+                <div className='file-upload__details-progress'>
+                    <div className='file-upload__details-progress-bar' />
+                </div>
             </div>
             <img className='file-upload__action-icon' src={cancelicon} alt='' />
         </div>
