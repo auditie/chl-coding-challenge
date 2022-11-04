@@ -21,6 +21,10 @@
         text-align: center;
         position: relative;
         justify-content: center;
+        background-image: url('../../assets/icons/cloud.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
 
         &-cloud {
             position: absolute;
@@ -42,11 +46,30 @@
         &-dragndrop{
             margin-top: 2vh;
             @include centered;
-            background-color: $light-purple;
-            width: 90%;
+            background-color: $white;
+            width: 80%;
+            padding: 2vh 1vw;
             height: 20vh;
-            border: $light 4px dashed;
-            border-radius: 17px;
+            border: #d0d4e1 3px dashed;
+            border-radius: 10px;
+
+            &-icon {
+                height: 5vh;
+            }
+
+            &-text {
+                color: $grey-purple;
+            }
+
+            &-button {
+                font-size: 1.2em;
+                background-color: $secondary-purple;
+                border: none;
+                padding: 1vh 4vw;
+                color: $white;
+                border-radius: 5px;
+                box-shadow: 0px 10px 24px rgba(0, 0, 0, 0.25);
+            }
         }
     }
 
