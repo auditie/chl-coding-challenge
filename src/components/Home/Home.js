@@ -1,24 +1,9 @@
 import './Home.scss';
 import { useState, useRef} from 'react';
-// import { useDropzone } from 'react-dropzone';
 import FileUpload from '../FileUpload/FileUpload';
 import uploadCloud from '../../assets/icons/cloud-upload.png';
 
 const Home = props => {
-    // const [files, setFiles] = useState([]);
-
-    // const {getRootProps, getInputProps } = useDropzone({
-    //     accept: "pdf/*",
-    //     onDrop: (acceptedFiles) => {
-    //         setFiles(
-    //             acceptedFiles.map((file) => Object.assign(file, {
-    //                 preview: URL.createObjectURL(file)
-    //             }))
-    //         )
-    //     }
-    // })
-
-    // --------
     const wrapperRef = useRef(null);
 
     const [fileList, setFileList] = useState([]);
@@ -70,7 +55,7 @@ const Home = props => {
                 <h2 className='home__uploaded-title'>Uploaded files</h2>
                     {
                         fileList.map((file, index) => 
-                            <FileUpload key={index} file={file} />
+                            <FileUpload key={index} file={file} fileRemove={fileRemove} />
                         )
                     }
                 </section>
