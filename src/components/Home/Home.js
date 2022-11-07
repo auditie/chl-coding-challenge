@@ -63,9 +63,5 @@ const Home = props => {
     )
 }
 
-DropFileInput.propTypes = {
-    onFileChange: PropTypes.func
-}
-
 export default Home;
 
