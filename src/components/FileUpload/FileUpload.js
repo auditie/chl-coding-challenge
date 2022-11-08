@@ -1,7 +1,7 @@
 import './FileUpload.scss';
 // import pdficon from '../../assets/icons/pdf-icon.png';
 import cancelIcon from '../../assets/icons/cancel-icon.png';
-import completeIcon from '../../assets/icons/check-icon.png';
+// import completeIcon from '../../assets/icons/check-icon.png';
 import { ImageConfig } from '../../config/ImageConfig';
 
 const FileUpload = ({ file, fileRemove }) => {

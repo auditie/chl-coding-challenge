@@ -19,8 +19,8 @@ const Home = props => {
         if (newFile) {
             const updatedList = [...fileList, newFile];
             setFileList(updatedList);
-            props.onFileChange(updatedList);
         }
+        console.log(newFile);
     }
 
     const fileRemove = (file) => {
