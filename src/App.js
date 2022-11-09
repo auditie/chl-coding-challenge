@@ -1,5 +1,6 @@
 import './App.scss';
 import Home from './components/Home/Home';
+import UploadPage from './components/UploadPage/UploadPage';
 
 function App() {
 
@@ -9,7 +10,8 @@ function App() {
 
   return (
     <div className="App">
-      <Home onFilechange={(files) => onFilechange(files)} />
+      {/* <Home onFilechange={(files) => onFilechange(files)} /> */}
+      <UploadPage />
     </div>
   );
 }

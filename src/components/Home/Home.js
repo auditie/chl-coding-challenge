@@ -3,10 +3,14 @@ import { useState, useRef} from 'react';
 import FileUpload from '../FileUpload/FileUpload';
 import uploadCloud from '../../assets/icons/cloud-upload.png';
 
+export const API_URL = 'http://localhost:8080';
+
 const Home = props => {
     const wrapperRef = useRef(null);
 
     const [fileList, setFileList] = useState([]);
+
+    //const [progress, setProgress] = useState(0);
 
     const onDragEnter = () => wrapperRef.current.classList.add('dragover');
 
