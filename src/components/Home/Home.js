@@ -17,10 +17,10 @@ const Home = props => {
     const onFileDrop = (e) => {
         const newFile = e.target.files[0];
         if (newFile) {
-            const updatedList = [...fileList, newFile];
+            const updatedList = [newFile, ...fileList];
             setFileList(updatedList);
         }
-        console.log(newFile);
+        console.log(newFile.type);
     }
 
     const fileRemove = (file) => {
@@ -55,7 +55,11 @@ const Home = props => {
                 <h2 className='home__uploaded-title'>Uploaded files</h2>
                     {
                         fileList.map((file, index) => 
-                            <FileUpload key={index} file={file} fileRemove={fileRemove} />
+                            <FileUpload 
+                            key={index} 
+                            file={file} 
+                            fileRemove={fileRemove}
+                            />
                         )
                     }
                 </section>

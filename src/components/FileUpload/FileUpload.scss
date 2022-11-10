@@ -42,6 +42,7 @@
             &-name {
                 font-size: 1em;
                 color: #3B4049;
+                width: 80%;
             }
 
             &-upload {
@@ -50,7 +51,14 @@
             }
         }
 
+        &-container {
+            position: relative;
+            margin-top: 1.3vh;
+            width: 100%;
+        }
+
         &-progress {
+            position: relative;
             margin-top: 1.3vh;
             background-color: #e6e9fb;
             width: 100%;
@@ -71,5 +79,55 @@
         margin-top: 4%;
         cursor: pointer;
 
+    }
+}
+
+.progress2 {
+    border-radius: 30px;
+    background-color: #e6e9fb;
+}
+
+.progress-bar2 {
+    height: .7vh;
+    border-radius: 30px;
+    transition: 0.4s linear;
+    transition-property: width, background-color;
+}
+
+.progress-moved .progress-bar2 {
+    background-color: $main-purple;
+    animation: progress 5s;
+}
+
+@keyframes progress {
+    0% {
+        width: 0%;
+        background: $white;
+    }
+
+    100% {
+        width: 100%;
+        background: $main-purple;
+    }
+}
+
+.loader {
+    --p: 0;
+    animation: p 5s steps(100) infinte;
+    counter-reset: p var(--p);
+    font-size: 2.1em;
+    position: absolute;
+    bottom: 45px;
+    left: 325px;
+    color: $main-purple;
+}
+
+.loader:after {
+    content: counter(p) "%";
+}
+
+@keyframes p {
+    90%, 100% {
+        --p: 100;
     }
 }
