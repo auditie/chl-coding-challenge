@@ -1,6 +1,6 @@
 import './UploadPage.scss';
 import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import FileUpload from '../FileUpload/FileUpload';
 import uploadCloud from '../../assets/icons/cloud-upload.png';
 

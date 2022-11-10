@@ -6,17 +6,10 @@ import uploadCloud from '../../assets/icons/cloud-upload.png';
 export const API_URL = 'http://localhost:8080';
 
 const Home = props => {
-    const wrapperRef = useRef(null);
 
     const [fileList, setFileList] = useState([]);
 
     //const [progress, setProgress] = useState(0);
-
-    const onDragEnter = () => wrapperRef.current.classList.add('dragover');
-
-    const onDragLeave = () => wrapperRef.Ref.current.classList.remove('dragover');
-
-    const onDrop = () => wrapperRef.current.classList.remove('dragover');
 
     const onFileDrop = (e) => {
         const newFile = e.target.files[0];
@@ -41,10 +34,6 @@ const Home = props => {
                 <h2 className='home__upload-sub-title'>Upload documents you want to share with your team.</h2>
                 <div 
                     className='home__upload-dragndrop'
-                    ref={wrapperRef}
-                    onDragEnter={onDragEnter}
-                    onDragLeave={onDragLeave}
-                    onDrop={onDrop} 
                 >
                     <div className='home__upload-dragndrop-label'>
                         <img src={uploadCloud} alt='arrow in cloud' className='home__upload-dragndrop-icon' />
