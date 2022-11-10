@@ -1,28 +1,59 @@
 import './UploadPage.scss';
 import axios from 'axios';
-import { Component } from 'react';
+import { useState, useEffect } from 'react';
 import FileUpload from '../FileUpload/FileUpload';
 import uploadCloud from '../../assets/icons/cloud-upload.png';
 
 export const API_URL = 'http://localhost:8080';
 
-class UploadPage extends Component {
-    state = {
-        fileList: [],
-        progress: 0
+const UploadPage = () => {
+    const [fileList, setFileList] = useState([]);
+    const [progress, setProgress] = useState(0);
 
-    }
 
-    componentDidMount() {
+    useEffect(() => {
         axios.get(`${API_URL}/files`)
         .then((response) => {
-            ;
+            const currentFiles = response.data;
+            setFileList(currentFiles);
+        })
+    })
+
+    const handleFile = (e) => {
+        console.log(e.target.files[0]);
+        const newFile = e.target.files[0];
+
+        const newFileUpload = {
+            fileName: newFile.name,
+            fileSize: newFile.size,
+            fileType: newFile.type
+        }
+
+        const options = {
+            onUploadProgress: (progressEvent) => {
+                const {loaded, total} = progressEvent;
+                let percent = Math.round( (loaded * 100) / total)
+                console.log(`${loaded}kb of ${total}kb | ${percent}%`);
+
+                if (percent < 100 ) {
+                    setProgress(percent)
+                }
+
+            }
+        }
+
+        axios.post(`${API_URL}/files`, newFileUpload, options)
+        .then((response) => {
+            console.log("Success!")
+            setProgress(100)
+            console.log(progress);
+        })
+        .catch((error) => {
+            console.log('Error: ', error)
         })
     }
 
-
-    render() {
-        return (
+        return ( 
             <div className='upload-page'>
                 <div className='upload-page__upload'>
                     <h1 className='upload-page__upload-title'>UPLOAD FILES</h1>
@@ -35,20 +66,19 @@ class UploadPage extends Component {
                             <p className='upload-page__upload-dragndrop-text'>OR</p>
                             <button className='upload-page__upload-dragndrop-button'>Browse Files</button>
                         </div>
-                        <input type='file' value=''  />
+                        <input type='file' value='' onChange={handleFile} />
                     </div>
                 </div>
                 <section className='upload-page__uploaded'>
                     <h2 className='upload-page__uploaded-title'>Uploaded files</h2>
                         {
                             fileList.map((file, index) => 
-                                <FileUpload key={index} file={file} />
+                                <FileUpload key={file.id} file={file} percent={progress} />
                             )
                         }
                     </section>
                 </div>
         )
-    }
 }
 
 export default UploadPage;
