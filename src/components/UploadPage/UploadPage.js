@@ -7,8 +7,14 @@ import uploadCloud from '../../assets/icons/cloud-upload.png';
 export const API_URL = 'http://localhost:8080';
 
 const UploadPage = () => {
+    const wrapperRef = useRef(null);
+
     const [fileList, setFileList] = useState([]);
     const [progress, setProgress] = useState(0);
+
+    const onDragEnter = () => wrapperRef.current.classList.add('dragover');
+    const onDragLeave = () => wrapperRef.Ref.current.classList.remove('dragover');
+    const onDrop = () => wrapperRef.current.classList.remove('dragover');
 
 
     useEffect(() => {
@@ -59,7 +65,12 @@ const UploadPage = () => {
                     <h1 className='upload-page__upload-title'>UPLOAD FILES</h1>
                     <h2 className='upload-page__upload-sub-title'>Upload documents you want to share with your team.</h2>
                     <div 
-                        className='upload-page__upload-dragndrop'>
+                        className='upload-page__upload-dragndrop'
+                        ref={wrapperRef}
+                        onDragEnter={onDragEnter}
+                        onDragLeave={onDragLeave}
+                        onDrop={onDrop} 
+                        >
                         <div className='upload-page__upload-dragndrop-label'>
                             <img src={uploadCloud} alt='arrow in cloud' className='upload-page__upload-dragndrop-icon' />
                             <p className='upload-page__upload-dragndrop-text'>Drag & Drop your files here</p>
